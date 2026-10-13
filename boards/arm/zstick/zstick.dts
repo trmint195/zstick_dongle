@@ -16,6 +16,7 @@ SPDX-License-Identifier: MIT
 		zephyr,code-partition = &code_partition;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zmk,matrix-transform = &matrix_transform0;
 	};
 	
 	leds {
@@ -25,23 +26,23 @@ SPDX-License-Identifier: MIT
 		};
 	};
 
-matrix_transform0: matrix_transform0 {
-        compatible = "zmk,matrix-transform";
-        columns = <1>;
-        rows = <1>;
-        map = <
-            RC(0,0)
-        >;
-    };
+	matrix_transform0: matrix_transform0 {
+		compatible = "zmk,matrix-transform";
+		columns = <1>;
+		rows = <1>;
+		map = <
+			RC(0,0)
+		>;
+	};
 
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
+	kscan0: kscan0 {
+		compatible = "zmk,kscan-gpio-direct";
+		wakeup-source;
 
-        input-gpios
-            = <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            ;
-    };
+		input-gpios
+			= <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+			;
+	};
 };
 
 &gpiote {
