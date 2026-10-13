@@ -1,0 +1,11 @@
+file_format: "1"
+id: zstick
+name: ZStick
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+url: none
