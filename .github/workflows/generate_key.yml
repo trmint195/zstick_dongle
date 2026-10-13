@@ -1,0 +1,54 @@
+name: Generate AES Key and Build
+
+# Trigger manually via GitHub Actions tab
+on:
+  workflow_dispatch:
+
+jobs:
+  # JOB 1: Generate key, update all config files, and commit changes back to the repository
+  generate-key:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grant write permissions to enable git push
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Random AES Key for All Config Files
+        run: |
+          # 1. Generate a random 32-character hexadecimal string (16 bytes = 128-bit key)
+          RANDOM_KEY=$(openssl rand -hex 16)
+          echo "Generated Key: $RANDOM_KEY"
+
+          # 2. Find all .conf files in the config/ directory containing CONFIG_ZMK_2G4_AES_KEY
+          FILES=$(grep -rl "CONFIG_ZMK_2G4_AES_KEY" config/*.conf 2>/dev/null || true)
+
+          if [ -z "$FILES" ]; then
+            echo "No .conf files containing CONFIG_ZMK_2G4_AES_KEY were found in the config/ directory."
+            exit 0
+          fi
+
+          # 3. Iterate through all matching files and replace the AES key
+          for file in $FILES; do
+            echo "Updating key for file: $file"
+            sed -i "s/CONFIG_ZMK_2G4_AES_KEY=.*/CONFIG_ZMK_2G4_AES_KEY=\"$RANDOM_KEY\"/" "$file"
+          done
+
+          # 4. Configure Git identity
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 5. Stage, commit, and push changes
+          git add config/*.conf
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: generate random ZMK 2.4G AES key"
+            git push
+          fi
+
+  # JOB 2: Build ZMK firmware (Runs automatically after generate-key finishes)
+  build:
+    needs: generate-key # Wait for job generate-key to complete before running
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
