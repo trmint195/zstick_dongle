@@ -1,0 +1,135 @@
+(footprint "CA-C01"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 2.286 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "54399a57-343f-473b-8832-bd3fd509a223")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "CA-C01"
+		(at 0 5.08 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "6da5e713-e612-4cec-800d-e365ce962126")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e1ba7d6a-c3d9-46a9-b5ff-95ad09f3ed27")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "64f4bd62-f5fd-4ebd-9f50-e09ad377c62f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.032 -1.143)
+		(end 1.778 -1.143)
+		(stroke
+			(width 0.25)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "c7a5995b-5dca-4a11-b248-5ccbf39ab45e")
+	)
+	(fp_line
+		(start -2.032 1.143)
+		(end -2.032 -1.143)
+		(stroke
+			(width 0.25)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "bc35474c-27ea-407c-a9a7-48d2db59b30c")
+	)
+	(fp_line
+		(start 1.778 1.143)
+		(end -2.032 1.143)
+		(stroke
+			(width 0.25)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "fa78da21-62ec-45ac-821e-df6a2148031a")
+	)
+	(fp_rect
+		(start -2.286 -1.524)
+		(end 2.286 1.524)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "ce1276bc-2588-4dae-90a2-c218be362634")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "1711f0b6-9d1f-48b5-a7ca-7e1ce2c9fe81")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.214 0)
+		(size 1.128 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "a9c64d11-beea-4a95-bde1-82f38bd4733d")
+	)
+	(pad "2" smd rect
+		(at 1.214 0)
+		(size 1.128 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "dfd2b9d3-318d-4073-89b7-adbc4f903061")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/footprints.pretty/3d/CA-C01.STEP"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
