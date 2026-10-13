@@ -6,10 +6,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+
+    # 2.4GHZ 
+    - name: phdesign
+      url-base: https://github.com/ph-design/
+
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3
+      remote: phdesign
+      revision: 2g4-impl
       import: app/west.yml
   self:
     path: config
