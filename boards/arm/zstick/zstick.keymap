@@ -4,6 +4,8 @@
 / {
     keymap {
         compatible = "zmk,keymap";
+        display-name = "ZStick Keymap";
+        label = "ZStick Keymap";
         default_layer {
             bindings = <
                 &bootloader
