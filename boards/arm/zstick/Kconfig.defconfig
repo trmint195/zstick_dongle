@@ -5,6 +5,9 @@ if BOARD_ZSTICK
 
 config BOARD
     default "zstick"
+    
+config BUILD_OUTPUT_UF2_FAMILY_ID
+	default "0x621e937a"
 
 if USB_DEVICE_STACK
 
