@@ -595,7 +595,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "case/zmk_dongle_v0.6.step",
+      "step": "../case/zmk_dongle_v0.6.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
